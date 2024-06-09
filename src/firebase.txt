@@ -1,0 +1,84 @@
+import * as React from 'react';
+
+import { useEffect, useState } from 'react';
+import { initializeApp } from 'firebase/app'
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  addDoc,
+  doc,
+  deleteDoc } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom';
+
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyBE8TsAjq5JBD024bAA8LNNqSjc44-w1Vc",
+  authDomain: "templaterio-e08c2.firebaseapp.com",
+  projectId: "templaterio-e08c2",
+});
+
+function AdminPannel(){
+
+    const navigate = useNavigate();
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [users, setUsers] = useState([]);
+  
+    const db = getFirestore(firebaseApp);
+    const userCollectionRef = collection(db, "admins");
+  
+    async function criarUser() {
+        const user = await addDoc(userCollectionRef, {
+            email,
+            name,
+            password,
+      });
+      console.log(user);
+    };
+  
+    useEffect(() => {
+      const getUsers = async () => {
+        const data = await getDocs(userCollectionRef);//armazenar os dados
+        setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+      getUsers()
+    }, []);
+
+    function verificarUser(){
+        const name_ = document.getElementById('namer').value;
+        const pass_ = document.getElementById('password').value;
+        const email_ = document.getElementById('email').value;
+        var finded = false;
+        for(let index = 0; index < users.length; index += 1) {
+            if (name_ == users[index]['name'] && email_ == users[index]['email'] && pass_ == users[index]['password']) {
+                finded = true;
+                navigate('/admin');
+                break;
+            };
+        };
+        console.log(finded);
+        if (finded != true){
+            alert("Não Encontrado!")
+        }
+
+    };
+    // async function deleteUser(id) {
+    //   const userDoc = doc(db, 'users', id);
+    //   await deleteDoc(userDoc);
+    // }
+
+    return(
+        <div>
+            <ul className="login-panel">
+                <input type="text" placeholder='Nome' id="namer" />
+                <input type="email" placeholder='Email' id="email" />
+                <input type="password" placeholder='Senha' id="password" />
+                <button onClick={()=> verificarUser(name)}>Entrar</button>
+            </ul>
+        </div>
+    )
+}
+
+export default AdminPannel;

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+#mainLogin{
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, black, rgb(0, 30, 54));
+    text-rendering: geometricPrecision;
+
+    color: white;
+}
+
+
+.left-side{
+    width: 65%;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-side h1{
+    font-size: 5em;
+    margin: 0;
+    margin-top: 2em;
+    background-image: linear-gradient(to bottom, white 50%, rgba(0,0,0,0));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.left-side p{
+    width: 80%;
+    text-align: center;
+    color: #ccc;
+
+}
+.left-side hr{
+    width: 90%;
+    background-color: #363636;
+    border-radius: 100%;
+}
+
+
+.input-side {
+    border: 1px solid #ccc;
+    height: 320px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+.input-side li{
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+.input-side li p{
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-weight: bolder;
+}
+.input-side input{
+    padding: 10px;
+    border-radius: 10px;
+    width: 420px;
+    border: 2px solid rgb(0, 132, 255);
+    background-color: transparent;
+    color: #ccc;
+    font-weight: bolder;
+}
+
+.input-side button {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 4em;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+
+    border: none;
+    background-color: rgb(0, 132, 255);
+    color: white;
+    font-weight: bolder;
+
+}
+.input-side button:hover{
+    background-color: rgb(1, 99, 190);
+
+}
+
+.error-message{
+
+    display: block;
+
+    pointer-events: none;
+    position: absolute;
+
+    left: 10px;
+    top: 10px;
+
+    background-color: white;
+    width: 570px;
+    padding: .2px 5px;
+    border-radius: 5px;
+    color: black;
+    box-sizing: border-box;
+
+    top: -60px;
+    box-shadow: 0 0 10px black;
+    transition: transform 0.3s ease-in-out;
+}
+
+.error-message.transformed {
+
+    transform: translateY(70px);
+
+}
+
+.error-message a{
+    color: rgb(22, 0, 0);
+    font-weight: bolder;
+}
+
+.fa-search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    font-size: 20px;
+    color: #747474;
+    pointer-events: all;
+    cursor: pointer;
+}
+.fa-search:hover{
+    color: #ccc;
+}
+
+.addAccount{
+    display: flex;
+    align-items: center;
+    color: rgb(0, 132, 255);
+    font-size: 12px;
+    width: 100%;
+}
+
+.buttons{
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    box-sizing: border-box;
+}
+.buttons :nth-child(1){
+    background-color: #ccc;
+    color: rgb(27, 27, 27);
+}
+.buttons :nth-child(1):hover{
+    background-color: #ccc;
+    color: rgb(27, 27, 27);
+}
+
