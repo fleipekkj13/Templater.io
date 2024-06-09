@@ -3,6 +3,7 @@ import ProtectedRoutes from '../../utils/ProtectedRoutes';
 import './styles/style.css'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import firebase from 'firebase/app';
 
 import { initializeApp } from 'firebase/app'
 import {
